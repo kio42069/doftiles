@@ -15,7 +15,8 @@ background-color: #24283b;
 }
 
 #input image {
-	color: #c0caf5;
+	/*color: #c0caf5;*/
+    color: #b2d4fa;
 }
 
 #inner-box {
@@ -38,7 +39,8 @@ border: none;
 #text {
 margin: 5px;
 border: none;
-color: #c0caf5;
+/*color: #c0caf5;*/
+color: #b2d4fa
 } 
 
 #entry:selected {
