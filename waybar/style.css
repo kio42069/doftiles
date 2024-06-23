@@ -1,203 +1,188 @@
-@import "./colors.css";
-
 * {
-  background: transparent;
-  font-family: "KlartextMono";
-  font-size: 14px;
-  color: @yellow;
-  margin: 0.5px 0px 0.5px 0.5px;
+    border: none;
+    border-radius: 0px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 11px;
+    min-height: 0;
+    transition: 0s;
 }
 
-#waybar {
-  background: alpha(shade(@foreground, 0.4), 0.1);
-  min-height: 20px;
+window#waybar {
+    background: rgba(21, 18, 27, 0);
+    color: #cdd6f4;
 }
 
-#tray menu,
 tooltip {
-  background: @background;
-  color: @red;
-  border: 1px solid shade(@yellow, 0.6);
-}
-
-#scroll,
-#clock,
-#hardware,
-#scripts,
-#custom-weather,
-#batteries,
-#workspaces,
-#tray {
-  background: alpha(@background, 0.8);
-  border-radius: 8px;
-  padding: 2px;
-  margin-right: 4px;
-
-  /* border: 1px solid alpha(shade(@active, 0.6),0.6); */
-}
-
-#tray {
-  padding: 0px 8px 0px 8px;
+    background: #1e1e2e;
+    border-radius: 10px;
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: #11111b;
+    transition: 0.3s;
 }
 
 #workspaces button {
-  padding: 0px;
-  border-radius: 50%;
-  color: shade(@yellow, 0.8);
+    padding: 5px;
+    color: #ffffff;
+    margin-right: 3px;
 }
-#workspaces button.urgent {
-  text-decoration: underline;
-  font-weight: bold;
-}
+
 #workspaces button.active {
-  background: shade(alpha(@yellow, 0.2), 0.8);
-  color: shade(@yellow, 0.9);
-  border-radius: 8px;
+    color: #ffffff;
+    background-color: #000000;
 }
 
-#cpu,
+#workspaces button.empty{
+    color: #000000;
+}
+
+#workspaces button.focused {
+    color: #88ff88;
+    background: #eba0ac;
+    border-radius: 20px;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6e3a1;
+    border-radius: 20px;
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+    border-radius: 20px;
+}
+
+#custom-power_profile,
+#custom-weather,
+#window,
 #clock,
+#battery,
+#pulseaudio,
 #network,
-#custom-vpn,
-#custom-cputemp,
-#custom-colorpicker,
-#submap,
-#idle_inhibitor,
-#custom-updates,
-#gamemode,
-#custom-camera,
-#custom-notifications,
-#custom-recorder,
-#custom-batterysaver,
 #bluetooth,
-#disk,
-#memory,
-#pulseaudio,
-#pulseaudio.mic,
+#temperature,
+#workspaces,
+#tray,
+#custom-playerctl,
 #backlight {
-  padding: 0px 6px 0px 6px;
+    background: #1e1e2e;
+    opacity: 0.8;
+    padding: 0px 10px;
+    margin: 0;
+    margin-top: 5px;
+    border: 1px solid #181825;
 }
 
-#custom-github {
-  padding-right: 6px;
+#custom-playerctl{
+    border-radius: 20px;
+    color: #b2d4fa;
+    margin-left: 5px;
 }
 
-/* subhighlight */
-#gamemode,
-#submap,
-#custom-recorder,
-#custom-vpn,
-#custom-github,
-#custom-updates,
-#bluetooth.connected {
-  background: shade(alpha(@foreground, 0.1), 0.8);
-  border-radius: 8px;
+#temperature {
+    border-radius: 20px 0px 0px 20px;
 }
 
-#idle_inhibitor,
-#pulseaudio,
-#pulseaudio.mic {
-   color: @yellow;
+#temperature.critical {
+    color: #eba0ac;
+}
+
+@keyframes blink{
+    to {
+        background-color: #ff0000;
+        color: #ffffff;
+    }
+}
+#battery.critical:not(.charging),
+#battery.warning:not(.charging)
+{
+    color: #ff0000;
+    animation-name: blink;
+    animation-duration: 0.1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #backlight {
-  /* color: #fab387; */
+    border-radius: 0px 20px 20px 0px;
+    padding-right: 8px;
+    margin-right: 8px;
 }
 
-#memory {
-  color: shade(@yellow, 0.8);
+#tray {
+    border-radius: 20px;
+    margin-right: 5px;
+    padding: 0px 4px;
 }
 
-#disk {
-  color: shade(@yellow, 0.8);
+#workspaces {
+    background: #1e1e2e;
+    border-radius: 20px;
+    margin-left: 5px;
+    padding-right: 0px;
+    padding-left: 5px;
 }
 
-#custom-recorder {
-  /* color: #d78787; */
+#custom-power_profile {
+    color: #a6e3a1;
+    border-left: 0px;
+    border-right: 0px;
 }
 
-#cpu {
-  color: shade(@yellow, 0.8);
+#window {
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-#custom-batterysaver.powersave,
-#custom-batterysaver.power {
-  color: #a6e3a1;
+#clock {
+    color: #fab387;
+    border-radius: 20px;
+    margin-left: 5px;
+    border-right: 0px;
+    transition: 0.3s;
+    padding-left: 7px;
 }
-#custom-batterysaver.default,
-#custom-batterysaver.normal {
-  /* color: #7aa2f7; */
-}
-#custom-batterysaver.performance {
-  color: #d78787;
-}
-
-#custom-cputemp.cool {
-  color:@cyan;
-}
-
-#custom-cputemp.warm {
-  color:@green;
-}
-
-#custom-cputemp.warn {
-  color:@yellow;
-}
-
-#custom-cputemp.critical {
-  color:@red;
-}
-
-
 
 #network {
-  color: @yellow;
+    color: #f9e2af;
+    border-radius: 20px 0px 0px 20px;
+    border-left: 0px;
+    border-right: 0px;
 }
 
-#network.disabled,
-#network.disconnected {
-  color: #d78787;
-}
-@keyframes blink {
-  to {
-    background-color: alpha(red, 0.6);
-    color: @foreground;
-  }
-}
-@keyframes blink-blue {
-  to {
-    background-color: alpha(@orange, 0.6);
-    color: @foreground;
-  }
+#bluetooth {
+    color: #89b4fa;
+    border-radius: 20px;
+    margin-right: 10px
+} 
+
+#pulseaudio {
+    color: #89b4fa;
+    border-left: 0px;
+    border-right: 0px;
 }
 
-#battery.warning:not(.charging),
-#battery.critical:not(.charging) {
-  animation-name: blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+#pulseaudio.microphone {
+    color: #cba6f7;
+    border-radius: 20px 0px 0px 20px;
+    padding-left: 8px;
+    margin-left:2px;
 }
 
-#bluetooth.discoverable,
-#bluetooth.discovering,
-#bluetooth.pairable {
-  animation-name: blink-blue;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+#battery {
+    color: #a6e3a1;
+    border-radius: 0 20px 20px 0;
+    margin-right: 5px;
+    border-left: 0px;
 }
 
-/* Override */
-
-#batteries {
-  margin-right: 0px;
-  border-radius: 8px 0px 0px 8px;
-}
-#clock {
-  margin-left: 0px;
-  border-radius: 0px 8px 8px 0px;
-  background: alpha(@background, 0.6);
+#custom-weather {
+    border-radius: 20px;
+    border-right: 0px;
+    margin-left: 5px;
 }

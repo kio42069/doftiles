@@ -1,21 +1,21 @@
 #!/bin/bash
 
-
 raise_volume() {
-    pamixer --unmute
-    pamixer --increase 2
-    send_volume_notify
+    if [[ $(pamixer --get-volume) -lt 120 ]]; then
+        pamixer --unmute
+        pactl set-sink-volume @DEFAULT_SINK@ +5%
+    else
+        pactl set-sink-volume @DEFAULT_SINK@ 120%
+    fi
+    current_volume=$(pamixer --get-volume)
+    notify-send -i ~/.config/dunst/assets/ui/volume_up.png -h string:x-canonical-private-synchronous:sys-notify $current_volume
 }
 
 lower_volume() {
     pamixer --unmute
-    pamixer --decrease 2
-    send_volume_notify
-}
-
-send_volume_notify() {
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
     current_volume=$(pamixer --get-volume)
-    notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -h int:value:$current_volume " "
+    notify-send -i ~/.config/dunst/assets/ui/volume_down.png -h string:x-canonical-private-synchronous:sys-notify $current_volume
 }
 
 toggle_mute() {
