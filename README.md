@@ -1,3 +1,3 @@
-## My Arch Linux COnfiguration files
+## My Arch Linux Configuration files
 
 install oh my zsh
