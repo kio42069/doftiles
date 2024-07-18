@@ -29,8 +29,9 @@ tooltip {
 }
 
 #workspaces button.active {
-    color: #ffffff;
-    background-color: #000000;
+    color: #000000;
+    background-color: #88ffff;
+    border-radius: 20px;
 }
 
 #workspaces button.empty{
@@ -50,8 +51,8 @@ tooltip {
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
+    background: #88ff88;
+    color: #000000;
     border-radius: 20px;
 }
 

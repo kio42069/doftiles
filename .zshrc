@@ -1,17 +1,11 @@
 export ZSH=$HOME/.oh-my-zsh
-#ZSH_THEME="archcraft"
-ZSH_THEME="af-magic"
-# Uncomment one of the following lines to change the auto-update behavior
+ZSH_THEME="archcraft"
 zstyle ':omz:update' mode disabled  # disable automatic updates
 source $ZSH/oh-my-zsh.sh
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
 zshcache_time="$(date +%s%N)"
+
 autoload -Uz add-zsh-hook
+
 rehash_precmd() {
   if [[ -a /var/cache/zsh/pacman ]]; then
     local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
@@ -21,13 +15,20 @@ rehash_precmd() {
     fi
   fi
 }
-#[[keyboard.bindings]]
-#action = "ScrollPageDown"
-#key = "PageDown"
-#mode = "~Alt"
-#mods = "None"
 
 add-zsh-hook -Uz precmd rehash_precmd
+alias zshconfig="geany ~/.zshrc"
+alias ohmyzsh="thunar ~/.oh-my-zsh"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# cal
+cat cow | cowthink -n
+# echo ""
+# fastfetch --config ~/.config/fastfetch/config.jsonc --logo ~/.config/fastfetch/ascii
+alias n='fastfetch'
 alias py='python'
 alias e='exit'
 alias code='code --ozone-platform=wayland && exit'
@@ -42,4 +43,8 @@ alias cim='vim'
 alias hypr='cd ~/.config/hypr && vim hyprland.conf'
 alias zsh='vim ~/.zshrc'
 alias cls='clear'
+alias vim='nvim'
 alias n="fastfetch --config ~/.config/fastfetch/config.jsonc --logo ~/.config/fastfetch/ascii"
+cat ~/.cache/wal/sequences
+source ~/.cache/wal/colors-tty.sh
+alias i="echo 'ios_base::sync_with_stdio(false);cin.tie(NULL);' | wl-copy"

@@ -1,8 +1,8 @@
 style=$HOME/.config/wofi/style.css
-xoffset=710
+xoffset=810
 yoffset=400
 show=drun
-width=500
+width=300
 height=300
 always_parse_args=true
 show_all=true

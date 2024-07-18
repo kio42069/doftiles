@@ -16,11 +16,9 @@ text = "CellBackground"
 
 [colors.normal]
 black = "#1b1e28"
-#blue = "#435c89"
 blue = "#b2d4fa"
 cyan = "#add7ff"
 green = "#5de4c7"
-#magenta = "#fcc5e9"
 magenta="#EC863E"
 red = "#d0679d"
 white = "#ffffff"
@@ -56,21 +54,21 @@ vi_mode_style = "Underline"
 TERM = "xterm-256color"
 
 [font]
-size = 10
+size = 11
 
 [font.bold]
-family = "JetBrains Mono Nerd Font"
+family = "ComicMono"
 style = "Bold"
 
 [font.glyph_offset]
 y = 0
 
 [font.italic]
-family = "JetBrains Mono Nerd Font"
+family = "ComicMono"
 style = "Italic"
 
 [font.normal]
-family = "JetBrains Mono Nerd Font"
+family = "FantasqueSansMono"
 style = "Regular"
 
 [font.offset]
