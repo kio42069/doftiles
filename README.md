@@ -1,3 +1,1 @@
-## My Arch Linux Configuration files
-
-install oh my zsh
+## OUTDATED DOTFILES : REFER TO [NEW](https://github.com/kio42069/kidots)
